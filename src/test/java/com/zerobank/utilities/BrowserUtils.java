@@ -1,13 +1,13 @@
 package com.zerobank.utilities;
 
-
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+//import org.testng.Assert;
 
 import java.io.File;
 import java.io.IOException;
@@ -181,7 +181,7 @@ public class BrowserUtils {
      */
     public static void verifyElementDisplayed(By by) {
         try {
-            Assert.assertTrue(Driver.get().findElement(by).isDisplayed(), "Element not visible: " + by);
+            Assert.assertTrue("Element not visible: " + by, Driver.get().findElement(by).isDisplayed());
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             Assert.fail("Element not found: " + by);
@@ -197,7 +197,7 @@ public class BrowserUtils {
      */
     public static void verifyElementNotDisplayed(By by) {
         try {
-            Assert.assertFalse(Driver.get().findElement(by).isDisplayed(), "Element should not be visible: " + by);
+            Assert.assertFalse("Element should not be visible: " + by, Driver.get().findElement(by).isDisplayed());
         } catch (NoSuchElementException e) {
             e.printStackTrace();
 
@@ -213,7 +213,7 @@ public class BrowserUtils {
      */
     public static void verifyElementDisplayed(WebElement element) {
         try {
-            Assert.assertTrue(element.isDisplayed(), "Element not visible: " + element);
+            Assert.assertTrue("Element not visible: " + element, element.isDisplayed());
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             Assert.fail("Element not found: " + element);
@@ -407,3 +407,4 @@ public class BrowserUtils {
 
 
 }
+
